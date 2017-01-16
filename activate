@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# Disable standard virtualenv prompt that would be (.env) ...
+VIRTUAL_ENV_DISABLE_PROMPT=TRUE
+
+# Set up virtaulenv and install dependencies
+source .env/bin/activate
+
+# Configure command prompt
+VIRTUAL_PROJECT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+_OLD_VIRTUAL_PS1="$PS1"
+if [ "x" != x ] ; then
+    PS1="$PS1"
+else
+    PS1="(`basename \"$VIRTUAL_PROJECT_DIR\"`) $PS1"
+fi
+export PS1
